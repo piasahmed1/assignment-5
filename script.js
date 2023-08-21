@@ -1,23 +1,50 @@
-let sum = 0;
+let total = 0;
 
-function inputValue(getValueId) {
+function callValue(piasAhmed) {
 
-    const getValue = parseFloat(document.getElementById(getValueId).innerText);
+    const getValue = parseFloat(document.getElementById(piasAhmed).innerText);
 
-    sum += getValue;
+    total += getValue;
 
-    if(sum >= 200)
+    if(total >= 200)
     {
-        document.getElementById('apply').disabled = false;
+        document.getElementById('apply-button').disabled = false;
     }
 
-    if(sum > 0)
+    if(total > 0)
     {
         document.getElementById('makePurchase').disabled = false;
     }
 
-    document.getElementById('totalPrice').innerText = sum.toFixed(2);
+    document.getElementById('totalPrice').innerText = total.toFixed(2);
 }
+
+
+function cardFirstSet() {
+    callValue('first-price');
+    cardNameText('first-card');
+}
+function cardSecondSet() {
+    callValue('second-price');
+    cardNameText('second-card');
+}
+function cardThirdSet() {
+    callValue('third-price');
+    cardNameText('third-card');
+}
+function cardFourSet() {
+    callValue('four-price');
+    cardNameText('four-card');
+}
+function cardFiveSet() {
+    callValue('five-price');
+    cardNameText('five-card');
+}
+function cardSixSet() {
+    callValue('six-price');
+    cardNameText('six-card');
+}
+
 
 let count = 0;
 function cardNameText(getCardName) {
@@ -26,31 +53,6 @@ function cardNameText(getCardName) {
     li.classList.add('newClass');
     li.innerText = count + '. ' + document.getElementById(getCardName).innerText;
     document.getElementById('cardNameShow').appendChild(li);
-}
-
-function cardFirstSet() {
-    inputValue('first-price');
-    cardNameText('first-card');
-}
-function cardSecondSet() {
-    inputValue('second-price');
-    cardNameText('second-card');
-}
-function cardThirdSet() {
-    inputValue('third-price');
-    cardNameText('third-card');
-}
-function cardFourSet() {
-    inputValue('four-price');
-    cardNameText('four-card');
-}
-function cardFiveSet() {
-    inputValue('five-price');
-    cardNameText('five-card');
-}
-function cardSixSet() {
-    inputValue('six-price');
-    cardNameText('six-card');
 }
 
 
@@ -67,6 +69,7 @@ function applyBtn() {
     }
 
     coupon.value = '';
+
 }
 
 function goHome()
@@ -80,7 +83,7 @@ function goHome()
     document.getElementById('totalPrice').innerText = '00.00';
     document.getElementById('discount').innerText = '00.00';
     document.getElementById('total').innerText = '00.00';
-    sum = 0;
+    total = 0;
     count = 0;
 
 }
